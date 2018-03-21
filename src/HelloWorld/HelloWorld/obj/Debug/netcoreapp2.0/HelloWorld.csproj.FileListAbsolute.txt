@@ -1,0 +1,11 @@
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\bin\Debug\netcoreapp2.0\HelloWorld.deps.json
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\bin\Debug\netcoreapp2.0\HelloWorld.runtimeconfig.json
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\bin\Debug\netcoreapp2.0\HelloWorld.runtimeconfig.dev.json
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\bin\Debug\netcoreapp2.0\HelloWorld.dll
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\bin\Debug\netcoreapp2.0\HelloWorld.pdb
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\obj\Debug\netcoreapp2.0\HelloWorld.csprojResolveAssemblyReference.cache
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\obj\Debug\netcoreapp2.0\HelloWorld.csproj.CoreCompileInputs.cache
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\obj\Debug\netcoreapp2.0\HelloWorld.AssemblyInfoInputs.cache
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\obj\Debug\netcoreapp2.0\HelloWorld.AssemblyInfo.cs
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\obj\Debug\netcoreapp2.0\HelloWorld.dll
+C:\Users\htang\source\repos\HelloWorld\HelloWorld\obj\Debug\netcoreapp2.0\HelloWorld.pdb
