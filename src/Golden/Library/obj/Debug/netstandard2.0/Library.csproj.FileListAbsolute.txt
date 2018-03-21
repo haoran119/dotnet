@@ -1,0 +1,9 @@
+C:\Users\htang\source\repos\Golden\Library\bin\Debug\netstandard2.0\Library.deps.json
+C:\Users\htang\source\repos\Golden\Library\bin\Debug\netstandard2.0\Library.dll
+C:\Users\htang\source\repos\Golden\Library\obj\Debug\netstandard2.0\Library.csprojResolveAssemblyReference.cache
+C:\Users\htang\source\repos\Golden\Library\obj\Debug\netstandard2.0\Library.csproj.CoreCompileInputs.cache
+C:\Users\htang\source\repos\Golden\Library\obj\Debug\netstandard2.0\Library.AssemblyInfoInputs.cache
+C:\Users\htang\source\repos\Golden\Library\obj\Debug\netstandard2.0\Library.AssemblyInfo.cs
+C:\Users\htang\source\repos\Golden\Library\bin\Debug\netstandard2.0\Library.pdb
+C:\Users\htang\source\repos\Golden\Library\obj\Debug\netstandard2.0\Library.dll
+C:\Users\htang\source\repos\Golden\Library\obj\Debug\netstandard2.0\Library.pdb

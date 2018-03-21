@@ -1,0 +1,14 @@
+C:\Users\htang\source\repos\Golden\App\bin\Debug\netcoreapp2.0\App.deps.json
+C:\Users\htang\source\repos\Golden\App\bin\Debug\netcoreapp2.0\App.runtimeconfig.json
+C:\Users\htang\source\repos\Golden\App\bin\Debug\netcoreapp2.0\App.runtimeconfig.dev.json
+C:\Users\htang\source\repos\Golden\App\bin\Debug\netcoreapp2.0\App.dll
+C:\Users\htang\source\repos\Golden\App\bin\Debug\netcoreapp2.0\App.pdb
+C:\Users\htang\source\repos\Golden\App\bin\Debug\netcoreapp2.0\Library.dll
+C:\Users\htang\source\repos\Golden\App\bin\Debug\netcoreapp2.0\Library.pdb
+C:\Users\htang\source\repos\Golden\App\obj\Debug\netcoreapp2.0\App.csprojResolveAssemblyReference.cache
+C:\Users\htang\source\repos\Golden\App\obj\Debug\netcoreapp2.0\App.csproj.CoreCompileInputs.cache
+C:\Users\htang\source\repos\Golden\App\obj\Debug\netcoreapp2.0\App.AssemblyInfoInputs.cache
+C:\Users\htang\source\repos\Golden\App\obj\Debug\netcoreapp2.0\App.AssemblyInfo.cs
+C:\Users\htang\source\repos\Golden\App\obj\Debug\netcoreapp2.0\App.csproj.CopyComplete
+C:\Users\htang\source\repos\Golden\App\obj\Debug\netcoreapp2.0\App.dll
+C:\Users\htang\source\repos\Golden\App\obj\Debug\netcoreapp2.0\App.pdb
