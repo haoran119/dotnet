@@ -1,0 +1,14 @@
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\bin\Release\netcoreapp2.0\ShowCase.deps.json
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\bin\Release\netcoreapp2.0\ShowCase.runtimeconfig.json
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\bin\Release\netcoreapp2.0\ShowCase.runtimeconfig.dev.json
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\bin\Release\netcoreapp2.0\ShowCase.dll
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\bin\Release\netcoreapp2.0\ShowCase.pdb
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\bin\Release\netcoreapp2.0\StringLibrary.dll
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\bin\Release\netcoreapp2.0\StringLibrary.pdb
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\obj\Release\netcoreapp2.0\ShowCase.csprojResolveAssemblyReference.cache
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\obj\Release\netcoreapp2.0\ShowCase.csproj.CoreCompileInputs.cache
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\obj\Release\netcoreapp2.0\ShowCase.AssemblyInfoInputs.cache
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\obj\Release\netcoreapp2.0\ShowCase.AssemblyInfo.cs
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\obj\Release\netcoreapp2.0\ShowCase.csproj.CopyComplete
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\obj\Release\netcoreapp2.0\ShowCase.dll
+C:\Users\htang\source\repos\ClassLibraryProjects\ShowCase\obj\Release\netcoreapp2.0\ShowCase.pdb
