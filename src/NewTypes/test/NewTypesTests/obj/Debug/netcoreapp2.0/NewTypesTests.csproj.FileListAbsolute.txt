@@ -1,0 +1,16 @@
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\obj\Debug\netcoreapp2.0\NewTypesTests.csproj.CoreCompileInputs.cache
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\obj\Debug\netcoreapp2.0\NewTypesTests.AssemblyInfoInputs.cache
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\obj\Debug\netcoreapp2.0\NewTypesTests.AssemblyInfo.cs
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\bin\Debug\netcoreapp2.0\NewTypesTests.deps.json
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\bin\Debug\netcoreapp2.0\NewTypesTests.runtimeconfig.json
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\bin\Debug\netcoreapp2.0\NewTypesTests.runtimeconfig.dev.json
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\bin\Debug\netcoreapp2.0\NewTypesTests.dll
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\bin\Debug\netcoreapp2.0\NewTypesTests.pdb
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\bin\Debug\netcoreapp2.0\NewTypes.dll
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\bin\Debug\netcoreapp2.0\NewTypes.pdb
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\obj\Debug\netcoreapp2.0\NewTypesTests.csproj.CopyComplete
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\obj\Debug\netcoreapp2.0\NewTypesTests.dll
+C:\Users\htang\source\repos\NewTypes\test\NewTypesTests\obj\Debug\netcoreapp2.0\NewTypesTests.pdb

@@ -1,0 +1,11 @@
+C:\Users\htang\source\repos\MyCLI\obj\Debug\netcoreapp2.0\MyCLI.csproj.CoreCompileInputs.cache
+C:\Users\htang\source\repos\MyCLI\obj\Debug\netcoreapp2.0\MyCLI.AssemblyInfoInputs.cache
+C:\Users\htang\source\repos\MyCLI\obj\Debug\netcoreapp2.0\MyCLI.AssemblyInfo.cs
+C:\Users\htang\source\repos\MyCLI\bin\Debug\netcoreapp2.0\MyCLI.deps.json
+C:\Users\htang\source\repos\MyCLI\bin\Debug\netcoreapp2.0\MyCLI.runtimeconfig.json
+C:\Users\htang\source\repos\MyCLI\bin\Debug\netcoreapp2.0\MyCLI.runtimeconfig.dev.json
+C:\Users\htang\source\repos\MyCLI\bin\Debug\netcoreapp2.0\MyCLI.dll
+C:\Users\htang\source\repos\MyCLI\bin\Debug\netcoreapp2.0\MyCLI.pdb
+C:\Users\htang\source\repos\MyCLI\obj\Debug\netcoreapp2.0\MyCLI.csprojResolveAssemblyReference.cache
+C:\Users\htang\source\repos\MyCLI\obj\Debug\netcoreapp2.0\MyCLI.dll
+C:\Users\htang\source\repos\MyCLI\obj\Debug\netcoreapp2.0\MyCLI.pdb
