@@ -1,0 +1,8 @@
+C:\Users\htang\source\repos\unit-testing-using-dotnet-test\PrimeService\bin\Debug\netstandard2.0\PrimeService.deps.json
+C:\Users\htang\source\repos\unit-testing-using-dotnet-test\PrimeService\bin\Debug\netstandard2.0\PrimeService.dll
+C:\Users\htang\source\repos\unit-testing-using-dotnet-test\PrimeService\bin\Debug\netstandard2.0\PrimeService.pdb
+C:\Users\htang\source\repos\unit-testing-using-dotnet-test\PrimeService\obj\Debug\netstandard2.0\PrimeService.csproj.CoreCompileInputs.cache
+C:\Users\htang\source\repos\unit-testing-using-dotnet-test\PrimeService\obj\Debug\netstandard2.0\PrimeService.AssemblyInfoInputs.cache
+C:\Users\htang\source\repos\unit-testing-using-dotnet-test\PrimeService\obj\Debug\netstandard2.0\PrimeService.AssemblyInfo.cs
+C:\Users\htang\source\repos\unit-testing-using-dotnet-test\PrimeService\obj\Debug\netstandard2.0\PrimeService.dll
+C:\Users\htang\source\repos\unit-testing-using-dotnet-test\PrimeService\obj\Debug\netstandard2.0\PrimeService.pdb
