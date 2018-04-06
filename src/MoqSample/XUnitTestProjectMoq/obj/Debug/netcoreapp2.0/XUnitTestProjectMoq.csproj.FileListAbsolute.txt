@@ -1,0 +1,14 @@
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\bin\Debug\netcoreapp2.0\XUnitTestProjectMoq.deps.json
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\bin\Debug\netcoreapp2.0\XUnitTestProjectMoq.runtimeconfig.json
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\bin\Debug\netcoreapp2.0\XUnitTestProjectMoq.runtimeconfig.dev.json
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\bin\Debug\netcoreapp2.0\XUnitTestProjectMoq.dll
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\obj\Debug\netcoreapp2.0\XUnitTestProjectMoq.csprojResolveAssemblyReference.cache
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\obj\Debug\netcoreapp2.0\XUnitTestProjectMoq.csproj.CoreCompileInputs.cache
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\obj\Debug\netcoreapp2.0\XUnitTestProjectMoq.AssemblyInfoInputs.cache
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\obj\Debug\netcoreapp2.0\XUnitTestProjectMoq.AssemblyInfo.cs
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\bin\Debug\netcoreapp2.0\XUnitTestProjectMoq.pdb
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\obj\Debug\netcoreapp2.0\XUnitTestProjectMoq.dll
+c:\users\htang\source\repos\MoqSample\XUnitTestProjectMoq\obj\Debug\netcoreapp2.0\XUnitTestProjectMoq.pdb
