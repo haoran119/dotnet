@@ -20,6 +20,6 @@
 
 ### Resources
 
-
+* [C# Tutorial - Full Course for Beginners - YouTube](https://www.youtube.com/watch?v=GhQdlIFylQ8&list=WL&index=7)
 
 
