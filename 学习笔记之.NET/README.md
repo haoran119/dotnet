@@ -22,4 +22,22 @@
 
 * [C# Tutorial - Full Course for Beginners - YouTube](https://www.youtube.com/watch?v=GhQdlIFylQ8&list=WL&index=7)
 
+### FAQ
 
+#### ERROR FIX
+
+* Compiler Error CS0106: The modifier `public' is not valid for this item
+    * [Compiler Error CS0106 | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/cs0106?f1url=%3FappId%3Droslyn%26k%3Dk(CS0106))
+        * The modifier 'modifier' is not valid for this item
+        * A class or interface member was marked with an invalid access modifier. 
+    * In C#, you cannot define static variables in a class member function directly. Static variables must be defined at the class level, outside of any member function. 
+```c#
+public class MyClass {
+    private static int count = 0;
+
+    public void MyMethod() {
+        // Use the static variable
+        count++;
+    }
+}
+```
