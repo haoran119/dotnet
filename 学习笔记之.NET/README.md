@@ -231,11 +231,87 @@ public class Person : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
 }
 ```
-* The `?.` operator is called the null conditional operator. It checks for a null reference before evaluating the right side of the operator. The end result is that if there are no subscribers to the `PropertyChanged` event, the code to raise the event doesn't execute. It would throw a `NullReferenceException` without this check in that case. For more information, see [events](https://learn.microsoft.com/en-us/dotnet/csharp/events-overview). This example also uses the new `nameof` operator to convert from the property name symbol to its text representation. Using `nameof` can reduce errors where you've mistyped the name of the property.
+* The `?.` operator is called the `null conditional operator`. It checks for a null reference before evaluating the right side of the operator. The end result is that if there are no subscribers to the `PropertyChanged` event, the code to raise the event doesn't execute. It would throw a `NullReferenceException` without this check in that case. For more information, see [events](https://learn.microsoft.com/en-us/dotnet/csharp/events-overview). This example also uses the new `nameof` operator to convert from the property name symbol to its text representation. Using `nameof` can reduce errors where you've mistyped the name of the property.
 
 ### [C# Programming Guide | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/?redirectedfrom=MSDN)
 
 ### [C# reference | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/)
+
+#### Statements
+
+##### [using statement - ensure the correct use of disposable objects](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/using)
+
+* The `using` statement ensures the correct use of an [IDisposable](https://learn.microsoft.com/en-us/dotnet/api/system.idisposable) instance:
+```c#
+var numbers = new List<int>();
+using (StreamReader reader = File.OpenText("numbers.txt"))
+{
+    string line;
+    while ((line = reader.ReadLine()) is not null)
+    {
+        if (int.TryParse(line, out int number))
+        {
+            numbers.Add(number);
+        }
+    }
+}
+```
+* When the control leaves the block of the `using` statement, an acquired `IDisposable` instance is disposed. In particular, the `using` statement ensures that a disposable instance is disposed even if an exception occurs within the block of the `using` statement. In the preceding example, an opened file is closed after all lines are processed.
+* Use the `await using` statement to correctly use an [IAsyncDisposable](https://learn.microsoft.com/en-us/dotnet/api/system.iasyncdisposable) instance:
+```c#
+await using (var resource = new AsyncDisposableExample())
+{
+    // Use the resource
+}
+```
+* For more information about using of `IAsyncDisposable` instances, see the [Using async disposable](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync#using-async-disposable) section of the [Implement a DisposeAsync method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync) article.
+* You can also use a `using declaration` that doesn't require braces:
+```c#
+static IEnumerable<int> LoadNumbers(string filePath)
+{
+    using StreamReader reader = File.OpenText(filePath);
+    
+    var numbers = new List<int>();
+    string line;
+    while ((line = reader.ReadLine()) is not null)
+    {
+        if (int.TryParse(line, out int number))
+        {
+            numbers.Add(number);
+        }
+    }
+    return numbers;
+}
+```
+* When declared in a `using declaration`, a local variable is disposed at the end of the scope in which it's declared. In the preceding example, disposal happens at the end of a method.
+* A variable declared by the `using` statement or declaration is `readonly`. You cannot reassign it or pass it as a ref or out parameter.
+* You can declare several instances of the same type in one `using` statement, as the following example shows:
+```c#
+using (StreamReader numbersFile = File.OpenText("numbers.txt"), wordsFile = File.OpenText("words.txt"))
+{
+    // Process both files
+}
+```
+* When you declare several instances in one `using` statement, they are disposed in reverse order of declaration.
+* You can also use the `using` statement and declaration with an instance of a [ref struct](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct) that fits the disposable pattern. That is, it has an instance `Dispose` method, which is accessible, parameterless and has a `void` return type.
+* The `using` statement can also be of the following form:
+```c#
+using (expression)
+{
+    // ...
+}
+```
+* where `expression` produces a disposable instance. The following example demonstrates that:
+```c#
+StreamReader reader = File.OpenText(filePath);
+
+using (reader)
+{
+    // Process file content
+}
+```
+* Warning
+    * In the preceding example, after control leaves the `using` statement, a disposable instance remains in scope while it's already disposed. If you use that instance further, you might encounter an exception, for example, [ObjectDisposedException](https://learn.microsoft.com/en-us/dotnet/api/system.objectdisposedexception). That's why we recommend declaring a disposable variable within the `using statement` or with the `using declaration`.
 
 ### FAQ
 
