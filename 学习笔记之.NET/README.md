@@ -22,6 +22,13 @@
 
 * [C# Tutorial - Full Course for Beginners - YouTube](https://www.youtube.com/watch?v=GhQdlIFylQ8&list=WL&index=7)
 
+### CONCEPT
+
+#### [Properties in C#](https://learn.microsoft.com/en-us/dotnet/csharp/properties)
+
+* Properties are first class citizens in C#. The language defines syntax that enables developers to write code that accurately expresses their design intent.
+* Properties behave like fields when they're accessed. However, unlike fields, properties are implemented with accessors that define the statements executed when a property is accessed or assigned.
+
 ### [C# Programming Guide | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/?redirectedfrom=MSDN)
 
 ### [C# reference | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/)
@@ -51,23 +58,55 @@ public class MyClass {
     * In order to use a non-static field, method, or property, you must first create an object instance. For more information about static methods, see Static Classes and Static Class Members. For more information about creating instances of classes, see Instance Constructors.
     * To correct this error, first create an instance of the class
     * To correct this error, you could also add the keyword static to the method definition
-```c#
-// CS0120_3.cs
-using System;
+    * In this code, the Foo() method is an instance method that references the non-static field x. However, the Bar() method is a static method that tries to call the Foo() method, which is not possible because Foo() is an instance method and requires an instance of the MyClass class to be called.
+    ```c#
+    class MyClass
+    {
+        public int x = 0;
+        public void Foo()
+        {
+            Console.WriteLine(x);
+        }
 
-public class MyClass
-{
-   public static void Main()
-   {
-      DoIt("Hello There");   // CS0120
-   }
-  
-   # private void DoIt(string sText)
-   private static void DoIt(string sText)
-   {
-      Console.WriteLine(sText);
-   }
-}
-```
+        public static void Bar()
+        {
+            Foo(); // This line will generate CS0120 error
+        }
+    }
+    ```
+	* To fix this error, you can either make the non-static member static, or create an instance of the class to call the non-static member. Here are two possible solutions:
+    	* Solution 1: Make the Foo() method static:
+        ```c#
+        class MyClass
+        {
+            public static int x = 0;
+            public static void Foo()
+            {
+                Console.WriteLine(x);
+            }
+
+            public static void Bar()
+            {
+                Foo(); // This line will work now
+            }
+        }
+        ```
+        * Solution 2: Create an instance of the class to call the Foo() method:
+        ```c#
+        class MyClass
+        {
+            public int x = 0;
+            public void Foo()
+            {
+                Console.WriteLine(x);
+            }
+
+            public static void Bar()
+            {
+                MyClass obj = new MyClass();
+                obj.Foo(); // This line will work now
+            }
+        }
+        ```
 
 # END
