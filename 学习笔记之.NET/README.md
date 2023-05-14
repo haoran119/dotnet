@@ -46,4 +46,28 @@ public class MyClass {
 }
 ```
 
+* [Compiler Error CS0120 | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/cs0120?f1url=%3FappId%3Droslyn%26k%3Dk(CS0120))
+    * An object reference is required for the nonstatic field, method, or property 'member'
+    * In order to use a non-static field, method, or property, you must first create an object instance. For more information about static methods, see Static Classes and Static Class Members. For more information about creating instances of classes, see Instance Constructors.
+    * To correct this error, first create an instance of the class
+    * To correct this error, you could also add the keyword static to the method definition
+```c#
+// CS0120_3.cs
+using System;
+
+public class MyClass
+{
+   public static void Main()
+   {
+      DoIt("Hello There");   // CS0120
+   }
+  
+   # private void DoIt(string sText)
+   private static void DoIt(string sText)
+   {
+      Console.WriteLine(sText);
+   }
+}
+```
+
 # END
