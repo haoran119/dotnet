@@ -255,9 +255,90 @@ public class Person : INotifyPropertyChanged
 ```
 * The `?.` operator is called the `null conditional operator`. It checks for a null reference before evaluating the right side of the operator. The end result is that if there are no subscribers to the `PropertyChanged` event, the code to raise the event doesn't execute. It would throw a `NullReferenceException` without this check in that case. For more information, see [events](https://learn.microsoft.com/en-us/dotnet/csharp/events-overview). This example also uses the new `nameof` operator to convert from the property name symbol to its text representation. Using `nameof` can reduce errors where you've mistyped the name of the property.
 
-### [C# Programming Guide | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/?redirectedfrom=MSDN)
+### [C# Programming Guide](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/?redirectedfrom=MSDN)
 
-### [C# reference | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/)
+### [C# reference](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/)
+
+#### Types
+
+##### [Value Types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types)
+
+###### [Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
+
+* The tuples feature provides concise syntax to group multiple data elements in a lightweight data structure. 
+* Tuple types support equality operators `==` and `!=`. For more information, see the [Tuple equality](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-equality) section.
+* Tuple types are value types; tuple elements are public fields. That makes tuples mutable value types.
+
+# 
+[Use cases of tuples](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#use-cases-of-tuples)
+
+* One of the most common use cases of tuples is as a method return type. That is, instead of defining out method parameters, you can group method results in a tuple return type, as the following example shows:
+```c#
+var xs = new[] { 4, 7, 9 };
+var limits = FindMinMax(xs);
+Console.WriteLine($"Limits of [{string.Join(" ", xs)}] are {limits.min} and {limits.max}");
+// Output:
+// Limits of [4 7 9] are 4 and 9
+
+var ys = new[] { -9, 0, 67, 100 };
+var (minimum, maximum) = FindMinMax(ys);
+Console.WriteLine($"Limits of [{string.Join(" ", ys)}] are {minimum} and {maximum}");
+// Output:
+// Limits of [-9 0 67 100] are -9 and 100
+
+(int min, int max) FindMinMax(int[] input)
+{
+    if (input is null || input.Length == 0)
+    {
+        throw new ArgumentException("Cannot find minimum and maximum of a null or empty array.");
+    }
+
+    // Initialize min to MaxValue so every value in the input
+    // is less than this initial value.
+    var min = int.MaxValue;
+    // Initialize max to MinValue so every value in the input
+    // is greater than this initial value.
+    var max = int.MinValue;
+    foreach (var i in input)
+    {
+        if (i < min)
+        {
+            min = i;
+        }
+        if (i > max)
+        {
+            max = i;
+        }
+    }
+    return (min, max);
+}
+```
+* As the preceding example shows, you can work with the returned tuple instance directly or deconstruct it in separate variables.
+
+#
+[Tuple field names](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-field-names)
+
+* You explicitly specify tuple fields names in a tuple initialization expression or in the definition of a tuple type, as the following example shows:
+* If you don't specify a field name, it may be inferred from the name of the corresponding variable in a tuple initialization expression, as the following example shows:
+* That's called `tuple projection initializers`. The name of a variable isn't projected onto a tuple field name in the following cases:
+    * The candidate name is a member name of a tuple type, for example, Item3, ToString, or Rest.
+    * The candidate name is a duplicate of another tuple field name, either explicit or implicit.
+* In the preceding cases, you either explicitly specify the name of a field or access a field by its default name.
+* The default names of tuple fields are `Item1`, `Item2`, `Item3` and so on. You can always use the default name of a field, even when a field name is specified explicitly or inferred, as the following example shows:
+* Tuple assignment and tuple equality comparisons don't take field names into account.
+* At compile time, the compiler replaces non-default field names with the corresponding default names. As a result, explicitly specified or inferred field names aren't available at run time.
+
+#
+[Tuple assignment and deconstruction](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-assignment-and-deconstruction)
+
+#
+[Tuple equality](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-equality)
+
+#
+[Tuples as out parameters](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuples-as-out-parameters)
+
+#
+[Tuples vs `System.Tuple`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuples-vs-systemtuple)
 
 #### Statements
 
