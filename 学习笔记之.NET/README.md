@@ -8,6 +8,28 @@
 	* Learn the fundamentals of .NET, an open-source developer platform for building many different types of applications.
 * [Framework Design Guidelines | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/)
 
+### [.NET API browser | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/api/)
+
+#### [System Namespace](https://learn.microsoft.com/en-us/dotnet/api/system?view=netframework-4.8.1)
+
+##### [Environment Class (System) | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/api/system.environment?view=netframework-4.8.1)
+
+* How to exit program ?
+    * In C#, you can use the Environment.Exit method to terminate your application and specify an exit code. Here's an example:
+    * `Environment.Exit(0);`
+    * In this example, 0 is the exit code. By convention, an exit code of 0 indicates that the program terminated successfully, while any other value (usually a positive integer) indicates an error or abnormal termination.
+    * The Environment.Exit method terminates the process immediately, which means that finally blocks and destructors for existing objects are not executed. This can result in resources not being released properly, so it should generally be used sparingly. It's usually better to allow your application to terminate naturally by letting execution reach the end of the Main method or by closing the application's main window.
+    * If you're writing a console application and want to specify an exit code, you can also do so by changing your Main method to return an int, like this:
+    ```c#
+    static int Main()
+    {
+        // ... your code here ...
+
+        return 0;
+    }
+    ```
+    * In this example, when execution reaches the end of the Main method, the application terminates and the return value of Main is used as the exit code.
+
 ## C#
 
 * [C# docs - get started, tutorials, reference. | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/)
