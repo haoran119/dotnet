@@ -8,7 +8,7 @@
 	* Learn the fundamentals of .NET, an open-source developer platform for building many different types of applications.
 * [Framework Design Guidelines | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/)
 
-### [.NET API browser | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/api/)
+### [.NET API browser](https://learn.microsoft.com/en-us/dotnet/api/)
 
 #### [System Namespace](https://learn.microsoft.com/en-us/dotnet/api/system?view=netframework-4.8.1)
 
