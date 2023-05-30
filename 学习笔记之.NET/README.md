@@ -331,6 +331,43 @@ Console.WriteLine($"Limits of [{string.Join(" ", ys)}] are {minimum} and {maximu
 #
 [Tuple assignment and deconstruction](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-assignment-and-deconstruction)
 
+* C# supports assignment between tuple types that satisfy both of the following conditions:
+    * both tuple types have the same number of elements
+    * for each tuple position, the type of the right-hand tuple element is the same as or implicitly convertible to the type of the corresponding left-hand tuple element
+* You can also use the assignment operator `=` to deconstruct a tuple instance in separate variables. You can do that in many ways:
+    * Use the `var` keyword outside the parentheses to declare implicitly typed variables and let the compiler infer their types:
+    ```c#
+    var t = ("post office", 3.6);
+    var (destination, distance) = t;
+    Console.WriteLine($"Distance to {destination} is {distance} kilometers.");
+    // Output:
+    // Distance to post office is 3.6 kilometers.
+    ```
+    * Explicitly declare the type of each variable inside parentheses:
+    * Declare some types explicitly and other types implicitly (with `var`) inside the parentheses:
+    * Use existing variables:
+    ```c#
+    var destination = string.Empty;
+    var distance = 0.0;
+
+    var t = ("post office", 3.6);
+    (destination, distance) = t;
+    Console.WriteLine($"Distance to {destination} is {distance} kilometers.");
+    // Output:
+    // Distance to post office is 3.6 kilometers.
+    ```
+* You can also combine deconstruction with [pattern matching](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching) to inspect the characteristics of fields in a tuple. The following example loops through several integers and prints those that are divisible by 3. It deconstructs the tuple result of [Int32.DivRem](https://learn.microsoft.com/en-us/dotnet/api/system.int32.divrem) and matches against a `Remainder` of 0:
+```c#
+for (int i = 4; i < 20;  i++)
+{
+    if (Math.DivRem(i, 3) is ( Quotient: var q, Remainder: 0 ))
+    {
+        Console.WriteLine($"{i} is divisible by 3, with quotient {q}");
+    }
+}
+```
+* For more information about deconstruction of tuples and other types, see [Deconstructing tuples and other types](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/deconstruct).
+
 #
 [Tuple equality](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-equality)
 
