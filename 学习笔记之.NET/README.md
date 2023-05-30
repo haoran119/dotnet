@@ -371,11 +371,61 @@ for (int i = 4; i < 20;  i++)
 #
 [Tuple equality](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-equality)
 
+* Tuple types support the `==` and `!=` operators. These operators compare members of the left-hand operand with the corresponding members of the right-hand operand following the order of tuple elements.
+
 #
 [Tuples as out parameters](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuples-as-out-parameters)
 
+* Typically, you refactor a method that has out parameters into a method that returns a tuple. However, there are cases in which an out parameter can be of a tuple type. The following example shows how to work with tuples as out parameters:
+```c#
+var limitsLookup = new Dictionary<int, (int Min, int Max)>()
+{
+    [2] = (4, 10),
+    [4] = (10, 20),
+    [6] = (0, 23)
+};
+
+if (limitsLookup.TryGetValue(4, out (int Min, int Max) limits))
+{
+    Console.WriteLine($"Found limits: min is {limits.Min}, max is {limits.Max}");
+}
+// Output:
+// Found limits: min is 10, max is 20
+```
+
 #
 [Tuples vs `System.Tuple`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuples-vs-systemtuple)
+
+* C# tuples, which are backed by [System.ValueTuple](https://learn.microsoft.com/en-us/dotnet/api/system.valuetuple) types, are different from tuples that are represented by [System.Tuple](https://learn.microsoft.com/en-us/dotnet/api/system.tuple) types. The main differences are as follows:
+    * `System.ValueTuple` types are [value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types). `System.Tuple` types are [reference types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types).
+    * `System.ValueTuple` types are mutable. `System.Tuple` types are immutable.
+    * Data members of `System.ValueTuple` types are fields. Data members of `System.Tuple` types are properties.
+* `System.ValueTuple` vs `System.Tuple` ?
+    * Both `System.Tuple` and `System.ValueTuple` in C# allow you to encapsulate multiple values of possibly different types. However, they have some differences:
+        * Immutability vs Mutability: System.Tuple is an immutable class, meaning once you've created an instance of System.Tuple, you can't change its elements. System.ValueTuple, on the other hand, is a mutable struct, so you can change the elements of a System.ValueTuple after you've created it.
+        * Memory Allocation: System.Tuple is a reference type and its objects are allocated on the heap, while System.ValueTuple is a value type and its objects are usually allocated on the stack. This makes System.ValueTuple more lightweight and efficient, especially for short-lived objects.
+        * Syntax and Usage: System.ValueTuple provides a more friendly and flexible syntax. You can declare ValueTuple variables with a concise syntax, and you can optionally name the elements of a ValueTuple. This is not possible with System.Tuple. Here is an example of ValueTuple usage:
+        ```c#
+        var person = (Name: "John", Age: 30);
+        Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
+        ```
+        * Compatibility: System.Tuple has been available since .NET Framework 4.0, while System.ValueTuple was introduced in .NET Framework 4.7 and .NET Core 1.0. If you're working with an older version of .NET, you might need to use System.Tuple.
+        * System.Tuple is a reference type, whereas System.ValueTuple is a value type. This means that ValueTuple can have performance benefits in some scenarios because it doesn't allocate on the heap and doesn't cause garbage collection.
+        * System.ValueTuple supports field names. This can make your code more readable.
+        * Here are examples of how to use both:
+        ```c#
+        // System.Tuple
+        var tuple = new Tuple<int, string>(1, "one");
+        Console.WriteLine(tuple.Item1);  // Outputs: 1
+        Console.WriteLine(tuple.Item2);  // Outputs: one
+
+        // System.ValueTuple
+        var valueTuple = (Number: 1, Word: "one");
+        Console.WriteLine(valueTuple.Number);  // Outputs: 1
+        Console.WriteLine(valueTuple.Word);    // Outputs: one
+        ```
+        * As you can see, the ValueTuple syntax is more succinct, and the ability to name fields makes it clearer what each field represents. Note that to use named ValueTuple elements, you must be using C# 7.0 or later.
+    * In most cases, `System.ValueTuple` is the better choice because of its improved syntax and performance. However, `System.Tuple` can still be useful in some situations, for example, when you need to ensure immutability or when you're working with older .NET versions.
 
 #### Statements
 
