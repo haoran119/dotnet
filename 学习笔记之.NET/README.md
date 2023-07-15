@@ -486,6 +486,19 @@ if (limitsLookup.TryGetValue(4, out (int Min, int Max) limits))
         * As you can see, the ValueTuple syntax is more succinct, and the ability to name fields makes it clearer what each field represents. Note that to use named ValueTuple elements, you must be using C# 7.0 or later.
     * In most cases, `System.ValueTuple` is the better choice because of its improved syntax and performance. However, `System.Tuple` can still be useful in some situations, for example, when you need to ensure immutability or when you're working with older .NET versions.
 
+##### [Reference types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types)
+
+* There are two kinds of types in C#: reference types and value types. Variables of reference types store references to their data (objects), while variables of value types directly contain their data. With reference types, two variables can reference the same object; therefore, operations on one variable can affect the object referenced by the other variable. With value types, each variable has its own copy of the data, and it's not possible for operations on one variable to affect the other (except in the case of in, ref, and out parameter variables; see [in](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/in-parameter-modifier), [ref](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref), and [out](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier) parameter modifier).
+* The following keywords are used to declare reference types:
+    * [class](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class)
+    * [interface](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
+    * [delegate](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types#the-delegate-type)
+    * [record](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record)
+* C# also provides the following built-in reference types:
+    * [dynamic](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types)
+    * [object](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types)
+    * [string](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types)
+
 #### Statements
 
 ##### [using statement - ensure the correct use of disposable objects](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/using)
