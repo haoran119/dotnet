@@ -264,6 +264,63 @@ public class Person : INotifyPropertyChanged
 ##### [Value Types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types)
 
 * Value types and reference types are the two main categories of C# types. A variable of a value type contains an instance of the type. This differs from a variable of a reference type, which contains a reference to an instance of the type. By default, on [assignment](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/assignment-operator), passing an argument to a method, and returning a method result, variable values are copied. In the case of value-type variables, the corresponding type instances are copied. The following example demonstrates that behavior:
+* As the preceding example shows, operations on a value-type variable affect only that instance of the value type, stored in the variable.
+* If a value type contains a data member of a reference type, only the reference to the instance of the reference type is copied when a value-type instance is copied. Both the copy and original value-type instance have access to the same reference-type instance. The following example demonstrates that behavior:
+```c#
+using System;
+using System.Collections.Generic;
+
+public struct TaggedInteger
+{
+    public int Number;
+    private List<string> tags;
+
+    public TaggedInteger(int n)
+    {
+        Number = n;
+        tags = new List<string>();
+    }
+
+    public void AddTag(string tag) => tags.Add(tag);
+
+    public override string ToString() => $"{Number} [{string.Join(", ", tags)}]";
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var n1 = new TaggedInteger(0);
+        n1.AddTag("A");
+        Console.WriteLine(n1);  // output: 0 [A]
+
+        var n2 = n1;
+        n2.Number = 7;
+        n2.AddTag("B");
+
+        Console.WriteLine(n1);  // output: 0 [A, B]
+        Console.WriteLine(n2);  // output: 7 [A, B]
+    }
+}
+```
+* `Note` To make your code less error-prone and more robust, define and use immutable value types. This article uses mutable value types only for demonstration purposes.
+* Kinds of value types and type constraints
+    * A value type can be one of the two following kinds:
+        * a structure type, which encapsulates data and related functionality
+        * an enumeration type, which is defined by a set of named constants and represents a choice or a combination of choices
+    * A nullable value type T? represents all values of its underlying value type T and an additional null value. You cannot assign null to a variable of a value type, unless it's a nullable value type.
+    * You can use the struct constraint to specify that a type parameter is a non-nullable value type. Both structure and enumeration types satisfy the struct constraint. You can use System.Enum in a base class constraint (that is known as the enum constraint) to specify that a type parameter is an enumeration type.
+* Built-in value types
+    * C# provides the following built-in value types, also known as `simple types`:
+        * Integral numeric types
+        * Floating-point numeric types
+        * bool that represents a Boolean value
+        * char that represents a Unicode UTF-16 character
+    * All simple types are structure types and differ from other structure types in that they permit certain additional operations:
+        * You can use literals to provide a value of a simple type. For example, 'A' is a literal of the type char and 2001 is a literal of the type int.
+        * You can declare constants of the simple types with the const keyword. It's not possible to have constants of other structure types.
+        * Constant expressions, whose operands are all constants of the simple types, are evaluated at compile time.
+    * A value tuple is a value type, but not a simple type.
 
 ###### [Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
 
