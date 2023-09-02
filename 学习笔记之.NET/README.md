@@ -12,7 +12,7 @@
 
 #### [System Namespace](https://learn.microsoft.com/en-us/dotnet/api/system?view=netframework-4.8.1)
 
-##### [Environment Class (System) | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/api/system.environment?view=netframework-4.8.1)
+##### [Environment Class](https://learn.microsoft.com/en-us/dotnet/api/system.environment?view=netframework-4.8.1)
 
 * How to exit program ?
     * In C#, you can use the Environment.Exit method to terminate your application and specify an exit code. Here's an example:
@@ -29,6 +29,21 @@
     }
     ```
     * In this example, when execution reaches the end of the Main method, the application terminates and the return value of Main is used as the exit code.
+
+##### String Class
+
+###### Methods
+
+#
+[String.Substring Method](https://learn.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-7.0)
+
+* Retrieves a substring from this instance.
+* This member is overloaded. For complete information about this member, including syntax, usage, and examples, click a name in the overload list.
+* Overloads
+    * [Substring(Int32)](https://learn.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-7.0#system-string-substring(system-int32))
+        * Retrieves a substring from this instance. The substring starts at a specified character position and continues to the end of the string.
+    * [Substring(Int32, Int32)](https://learn.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-7.0#system-string-substring(system-int32-system-int32))
+        * Retrieves a substring from this instance. The substring starts at a specified character position and has a specified length.
 
 #### [System.Linq Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.linq?view=net-7.0)
 
