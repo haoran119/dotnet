@@ -76,6 +76,25 @@ foreach (int i in scoreQuery)
 
 * A query is an expression that retrieves data from a data source. Queries are usually expressed in a specialized query language. Different languages have been developed over time for the various types of data sources, for example SQL for relational databases and XQuery for XML. Therefore, developers have had to learn a new query language for each type of data source or data format that they must support. LINQ simplifies this situation by offering a consistent model for working with data across various kinds of data sources and formats. In a LINQ query, you are always working with objects. You use the same basic coding patterns to query and transform data in XML documents, SQL databases, ADO.NET Datasets, .NET collections, and any other format for which a LINQ provider is available.
 
+###### [Query expression basics](https://learn.microsoft.com/en-us/dotnet/csharp/linq/query-expression-basics)
+
+* This article introduces the basic concepts related to query expressions in C#.
+
+###### [Write LINQ queries in C#](https://learn.microsoft.com/en-us/dotnet/csharp/linq/write-linq-queries)
+
+* Most queries in the introductory Language Integrated Query (LINQ) documentation are written by using the LINQ declarative query syntax. However, the query syntax must be translated into method calls for the .NET common language runtime (CLR) when the code is compiled. These method calls invoke the standard query operators, which have names such as `Where`, `Select`, `GroupBy`, `Join`, `Max`, and `Average`. You can call them directly by using method syntax instead of query syntax.
+* Query syntax and method syntax are semantically identical, but many people find query syntax simpler and easier to read. Some queries must be expressed as method calls. For example, you must use a method call to express a query that retrieves the number of elements that match a specified condition. You also must use a method call for a query that retrieves the element that has the maximum value in a source sequence. The reference documentation for the standard query operators in the [System.Linq](https://learn.microsoft.com/en-us/dotnet/api/system.linq) namespace generally uses method syntax. Therefore, even when getting started writing LINQ queries, it is useful to be familiar with how to use method syntax in queries and in query expressions themselves.
+
+###### [Type Relationships in LINQ Query Operations (C#)](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/type-relationships-in-linq-query-operations)
+
+* To write queries effectively, you should understand how types of the variables in a complete query operation all relate to each other. If you understand these relationships you will more easily comprehend the LINQ samples and code examples in the documentation. Furthermore, you will understand what occurs behind the scenes when variables are implicitly typed by using var.
+* LINQ query operations are strongly typed in the data source, in the query itself, and in the query execution. The type of the variables in the query must be compatible with the type of the elements in the data source and with the type of the iteration variable in the foreach statement. This strong typing guarantees that type errors are caught at compile time when they can be corrected before users encounter them.
+* In order to demonstrate these type relationships, most of the examples that follow use explicit typing for all variables. The last example shows how the same principles apply even when you use implicit typing by using [var](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/declarations#implicitly-typed-local-variables).
+
+###### [C# Features That Support LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/features-that-support-linq)
+
+* These new features are all used to a degree with LINQ queries, they are not limited to LINQ and can be used in any context where you find them useful.
+
 #### [Properties in C#](https://learn.microsoft.com/en-us/dotnet/csharp/properties)
 
 * Properties are first class citizens in C#. The language defines syntax that enables developers to write code that accurately expresses their design intent.
