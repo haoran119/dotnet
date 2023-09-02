@@ -573,6 +573,16 @@ if (limitsLookup.TryGetValue(4, out (int Min, int Max) limits))
     * [object](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types)
     * [string](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types)
 
+#### [Keywords](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/)
+
+* Keywords are predefined, reserved identifiers that have special meanings to the compiler. They can't be used as identifiers in your program unless they include @ as a prefix. For example, @if is a valid identifier, but if isn't because if is a keyword.
+
+##### [Query keywords](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/query-keywords)
+
+###### [select clause](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/select-clause)
+
+* In a query expression, the select clause specifies the type of values that will be produced when the query is executed. The result is based on the evaluation of all the previous clauses and on any expressions in the select clause itself. A query expression must terminate with either a select clause or a group clause.
+
 #### Statements
 
 ##### [using statement - ensure the correct use of disposable objects](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/using)
