@@ -70,6 +70,31 @@ foreach (int i in scoreQuery)
 // Output: 97 92 81
 ```
 
+#
+[Query expression overview](https://learn.microsoft.com/en-us/dotnet/csharp/linq/#query-expression-overview)
+
+* Query expressions can be used to query and to transform data from any LINQ-enabled data source. For example, a single query can retrieve data from a SQL database, and produce an XML stream as output.
+* Query expressions are easy to grasp because they use many familiar C# language constructs.
+* The variables in a query expression are all strongly typed, although in many cases you do not have to provide the type explicitly because the compiler can infer it. For more information, see Type relationships in LINQ query operations.
+* A query is not executed until you iterate over the query variable, for example, in a foreach statement. For more information, see Introduction to LINQ queries.
+* At compile time, query expressions are converted to Standard Query Operator method calls according to the rules set forth in the C# specification. Any query that can be expressed by using query syntax can also be expressed by using method syntax. However, in most cases query syntax is more readable and concise. For more information, see C# language specification and Standard query operators overview.
+* As a rule when you write LINQ queries, we recommend that you use query syntax whenever possible and method syntax whenever necessary. There is no semantic or performance difference between the two different forms. Query expressions are often more readable than equivalent expressions written in method syntax.
+* Some query operations, such as Count or Max, have no equivalent query expression clause and must therefore be expressed as a method call. Method syntax can be combined with query syntax in various ways. For more information, see Query syntax and method syntax in LINQ.
+* Query expressions can be compiled to expression trees or to delegates, depending on the type that the query is applied to. IEnumerable<T> queries are compiled to delegates. IQueryable and IQueryable<T> queries are compiled to expression trees. For more information, see Expression trees.
+
+#
+[How to enable LINQ querying of your data source](https://learn.microsoft.com/en-us/dotnet/csharp/linq/#how-to-enable-linq-querying-of-your-data-source)
+
+* In-memory data
+    * There are two ways you can enable LINQ querying of in-memory data. If the data is of a type that implements [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1), you can query the data by using LINQ to Objects. If it does not make sense to enable enumeration of your type by implementing the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1) interface, you can define LINQ standard query operator methods in that type or create LINQ standard query operator methods that extend the type. Custom implementations of the standard query operators should use deferred execution to return the results.
+* Remote data
+    * The best option for enabling LINQ querying of a remote data source is to implement the [IQueryable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.linq.iqueryable-1) interface. However, this differs from extending a provider such as LINQ to SQL for a data source.
+ 
+#
+[IQueryable LINQ providers](https://learn.microsoft.com/en-us/dotnet/csharp/linq/#iqueryable-linq-providers)
+
+* LINQ providers that implement [IQueryable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.linq.iqueryable-1) can vary widely in their complexity.
+
 ##### Getting Started with LINQ in C#
 
 ###### [Introduction to LINQ Queries (C#)](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)
