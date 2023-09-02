@@ -30,6 +30,46 @@
     ```
     * In this example, when execution reaches the end of the Main method, the application terminates and the return value of Main is used as the exit code.
 
+#### [System.Linq Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.linq?view=net-7.0)
+
+##### [Queryable Class](https://learn.microsoft.com/en-us/dotnet/api/system.linq.queryable?view=net-7.0)
+
+###### [Queryable.Select Method](https://learn.microsoft.com/en-us/dotnet/api/system.linq.queryable.select?view=net-7.0)
+
+* Projects each element of a sequence into a new form.
+* Overloads
+    * `Select<TSource,TResult>(IQueryable<TSource>, Expression<Func<TSource,Int32,TResult>>)`
+    	* Projects each element of a sequence into a new form by incorporating the element's index.
+    * `Select<TSource,TResult>(IQueryable<TSource>, Expression<Func<TSource,TResult>>)`
+        * Projects each element of a sequence into a new form.
+* `Select<TSource,TResult>(IQueryable<TSource>, Expression<Func<TSource,TResult>>)`
+```c#
+List<int> range =
+    new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+// Project the square of each int value.
+IEnumerable<int> squares =
+    range.AsQueryable().Select(x => x * x);
+
+foreach (int num in squares)
+    Console.WriteLine(num);
+
+/*
+    This code produces the following output:
+
+    1
+    4
+    9
+    16
+    25
+    36
+    49
+    64
+    81
+    100
+*/
+```
+
 ## C#
 
 * [C# docs - get started, tutorials, reference. | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/)
