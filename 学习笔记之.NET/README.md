@@ -32,10 +32,7 @@
 
 ##### String Class
 
-###### Methods
-
-#
-[String.Substring Method](https://learn.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-7.0)
+###### [String.Substring Method](https://learn.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-7.0)
 
 * Retrieves a substring from this instance.
 * This member is overloaded. For complete information about this member, including syntax, usage, and examples, click a name in the overload list.
@@ -44,6 +41,10 @@
         * Retrieves a substring from this instance. The substring starts at a specified character position and continues to the end of the string.
     * [Substring(Int32, Int32)](https://learn.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-7.0#system-string-substring(system-int32-system-int32))
         * Retrieves a substring from this instance. The substring starts at a specified character position and has a specified length.
+
+#
+MISC
+
 * C# split string "ABCDEF" into "ABC" and "DEF" and convert them with func foo(string) and then combine them to string and return ?
 ```c#
 using System;
