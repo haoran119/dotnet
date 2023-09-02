@@ -215,6 +215,84 @@ MISC
         ```
     * Note that the GetLength function matches the expected delegate of the Select method for a list of strings (i.e., a function that takes a string and returns an int). If you have another type of list (e.g., a list of integers), you would need a function that matches the appropriate delegate for that list.
 
+#### [System.Text Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.text?view=net-7.0)
+
+* Contains classes that represent ASCII and Unicode character encodings; abstract base classes for converting blocks of characters to and from blocks of bytes; and a helper class that manipulates and formats String objects without creating intermediate instances of String.
+
+##### [StringBuilder Class](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=net-7.0)
+
+* The following example shows how to call many of the methods defined by the StringBuilder class.
+```c#
+using System;
+using System.Text;
+
+public sealed class App
+{
+    static void Main()
+    {
+        // Create a StringBuilder that expects to hold 50 characters.
+        // Initialize the StringBuilder with "ABC".
+        StringBuilder sb = new StringBuilder("ABC", 50);
+
+        // Append three characters (D, E, and F) to the end of the StringBuilder.
+        sb.Append(new char[] { 'D', 'E', 'F' });
+
+        // Append a format string to the end of the StringBuilder.
+        sb.AppendFormat("GHI{0}{1}", 'J', 'k');
+
+        // Display the number of characters in the StringBuilder and its string.
+        Console.WriteLine("{0} chars: {1}", sb.Length, sb.ToString());
+
+        // Insert a string at the beginning of the StringBuilder.
+        sb.Insert(0, "Alphabet: ");
+
+        // Replace all lowercase k's with uppercase K's.
+        sb.Replace('k', 'K');
+
+        // Display the number of characters in the StringBuilder and its string.
+        Console.WriteLine("{0} chars: {1}", sb.Length, sb.ToString());
+    }
+}
+
+// This code produces the following output.
+//
+// 11 chars: ABCDEFGHIJk
+// 21 chars: Alphabet: ABCDEFGHIJK
+```
+
+###### MISC
+
+* C# combine two string into one efficiently ?
+    * In C#, there are multiple ways to combine two strings. The most straightforward methods involve using the + operator or the string.Concat method. Both are efficient, but in scenarios where you're concatenating many strings in a loop, it's more efficient to use StringBuilder.
+    * Here's a quick overview of each method:
+    * Using `+` Operator:
+    ```c#
+    string str1 = "Hello";
+    string str2 = "World";
+    string result = str1 + " " + str2;
+    Console.WriteLine(result); // Outputs: Hello World
+    ```
+    * Using `string.Concat`:
+    ```c#
+    string str1 = "Hello";
+    string str2 = "World";
+    string result = string.Concat(str1, " ", str2);
+    Console.WriteLine(result); // Outputs: Hello World
+    ```
+    * Using `StringBuilder`:
+        * If you are combining strings in a loop or dealing with a larger number of string operations, StringBuilder can offer better performance than the two methods above:
+        ```c#
+        using System.Text;
+        
+        StringBuilder sb = new StringBuilder();
+        sb.Append("Hello");
+        sb.Append(" ");
+        sb.Append("World");
+        string result = sb.ToString();
+        Console.WriteLine(result); // Outputs: Hello World
+        ```
+    * For most scenarios where you're just concatenating two strings a few times, using the `+` operator or `string.Concat` will be sufficiently efficient and provide clear, concise code. However, if you're performing many string manipulations in a loop or need to concatenate a large number of strings, `StringBuilder` is the better choice due to its optimized memory handling.
+
 ## C#
 
 * [C# docs - get started, tutorials, reference. | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/)
