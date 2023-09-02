@@ -70,6 +70,97 @@ foreach (int num in squares)
 */
 ```
 
+#
+MISC
+
+* C# LINQ Select ?
+    * In C#, the LINQ (Language Integrated Query) Select method is used to project each element of a sequence into a new form. Essentially, it allows you to transform the items in a collection.
+    * Here are some examples:
+    * Basic Select Example
+        * Transforming an array of integers by squaring each integer:
+        ```c#
+        using System;
+        using System.Linq;
+        
+        class Program
+        {
+            static void Main()
+            {
+                int[] numbers = { 1, 2, 3, 4, 5 };
+                var squared = numbers.Select(x => x * x).ToArray();
+        
+                foreach (var num in squared)
+                {
+                    Console.WriteLine(num);
+                }
+            }
+        }
+        // Output: 1 4 9 16 25
+        ```
+    * Select With Index
+        * The Select method can also use an overload that includes the index of the source element:
+        ```c#
+        var items = new string[] { "apple", "banana", "mango", "orange" };
+        
+        var result = items.Select((item, index) => new { Index = index, Value = item.ToUpper() });
+        
+        foreach (var item in result)
+        {
+            Console.WriteLine($"Item={item.Value}, Index={item.Index}");
+        }
+        ```
+    * Transforming into a Different Type
+        * You can also transform the elements into a different type:
+        ```c#
+        class Person
+        {
+            public string Name { get; set; }
+        }
+        
+        var people = new List<Person>
+        {
+            new Person { Name = "Alice" },
+            new Person { Name = "Bob" }
+        };
+        
+        var names = people.Select(person => person.Name).ToList();
+        ```
+    * Chaining Operations
+        * You can chain Select with other LINQ methods for more complex operations:
+        ```c#
+        var numbers = new[] { 1, 2, 3, 4, 5 };
+        var evenSquares = numbers.Where(x => x % 2 == 0).Select(x => x * x);
+        ```
+    * The Select method is extremely versatile and one of the most commonly used LINQ methods in C#. It works not only on arrays but also on any type that implements IEnumerable.
+* C# LINQ Select with function name as parameter only ?
+    * If you want to use a function name as a parameter in a LINQ Select statement, you can pass it directly if its signature matches the expected delegate for the Select method. Here's a simple example to demonstrate this:
+    * Define a function that matches the expected delegate:
+        * For a list of strings, the function should take a string as a parameter and return a value. Let's define a function that returns the length of each string:
+        ```c#
+        public static int GetLength(string s)
+        {
+            return s.Length;
+        }
+        ```
+    * Use the function with LINQ:
+        * Now, you can use the GetLength function directly in the Select statement without wrapping it in a lambda expression:
+        ```c#
+        List<string> words = new List<string> { "apple", "banana", "cherry" };
+        
+        var lengths = words.Select(GetLength);
+        
+        foreach (var length in lengths)
+        {
+            Console.WriteLine(length);
+        }
+        
+        // This will output:
+        5
+        6
+        6
+        ```
+    * Note that the GetLength function matches the expected delegate of the Select method for a list of strings (i.e., a function that takes a string and returns an int). If you have another type of list (e.g., a list of integers), you would need a function that matches the appropriate delegate for that list.
+
 ## C#
 
 * [C# docs - get started, tutorials, reference. | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/)
