@@ -44,6 +44,45 @@
         * Retrieves a substring from this instance. The substring starts at a specified character position and continues to the end of the string.
     * [Substring(Int32, Int32)](https://learn.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-7.0#system-string-substring(system-int32-system-int32))
         * Retrieves a substring from this instance. The substring starts at a specified character position and has a specified length.
+* C# split string "ABCDEF" into "ABC" and "DEF" and convert them with func foo(string) and then combine them to string and return ?
+```c#
+using System;
+
+namespace StringManipulation
+{
+    class Program
+    {
+        static string foo(string str)
+        {
+            // Your transformation logic here
+            return str.ToLower();  // Example transformation
+        }
+
+        static string TransformAndCombine(string input)
+        {
+            if (input.Length != 6) // Validate length, adjust as needed
+            {
+                return "Invalid input";
+            }
+
+            string part1 = input.Substring(0, 3); // Split into "ABC"
+            string part2 = input.Substring(3, 3); // Split into "DEF"
+
+            string transformedPart1 = foo(part1); // Transform "ABC"
+            string transformedPart2 = foo(part2); // Transform "DEF"
+
+            return transformedPart1 + transformedPart2; // Combine and return
+        }
+
+        static void Main(string[] args)
+        {
+            string input = "ABCDEF";
+            string result = TransformAndCombine(input);
+            Console.WriteLine($"Transformed and Combined: {result}");
+        }
+    }
+}
+```
 
 #### [System.Linq Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.linq?view=net-7.0)
 
