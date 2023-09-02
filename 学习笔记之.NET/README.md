@@ -215,6 +215,48 @@ MISC
         6
         ```
     * Note that the GetLength function matches the expected delegate of the Select method for a list of strings (i.e., a function that takes a string and returns an int). If you have another type of list (e.g., a list of integers), you would need a function that matches the appropriate delegate for that list.
+* C# convert element in HashSet with function foo(string) and assign it to a new HashSet ?
+    * In C#, you can use LINQ to transform the elements in a `HashSet<string>` using a function and assign it to a new `HashSet<string>`. Here's an example that demonstrates this:
+    ```c#
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    
+    namespace HashSetTransformExample
+    {
+        class Program
+        {
+            static string Foo(string input)
+            {
+                // Your transformation logic here.
+                return input.ToUpper();
+            }
+    
+            static void Main(string[] args)
+            {
+                // Initialize the original HashSet.
+                HashSet<string> originalHashSet = new HashSet<string> { "apple", "banana", "cherry" };
+    
+                // Transform the HashSet using Foo and create a new HashSet with the results.
+                HashSet<string> transformedHashSet = new HashSet<string>(originalHashSet.Select(Foo));
+    
+                // Output the original and transformed HashSets to verify.
+                Console.WriteLine("Original HashSet:");
+                foreach (var item in originalHashSet)
+                {
+                    Console.WriteLine(item);
+                }
+    
+                Console.WriteLine("\nTransformed HashSet:");
+                foreach (var item in transformedHashSet)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+        }
+    }
+    ```
+    * In this example, the function Foo takes a string and returns it in uppercase. The `HashSet<string> originalHashSet` is transformed using Foo, and the result is stored in `HashSet<string> transformedHashSet`. We use LINQ's `Select` method to apply the function to each element in the original set.
 
 #### [System.Text Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.text?view=net-7.0)
 
