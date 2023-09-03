@@ -385,6 +385,28 @@ Func<int, int> fibonacci = (int n) =>
 };
 ```
 
+* C# why Use local function instead of lambda (IDE0039) ?
+    * In C#, both lambda expressions and local functions are used to define methods that can be embedded within another method. However, there are some differences and specific scenarios where one may be favored over the other. Starting with C# 7.0, local functions were introduced to address some of the shortcomings of lambda expressions.
+    * The code analyzer warning IDE0039 suggests using a local function instead of a lambda in some cases. Here's why:
+        * `Performance`: Lambdas, especially when they capture variables, can cause heap allocations because they get converted to delegate instances. Local functions, on the other hand, can be more optimized by the compiler, especially when capturing local variables. In many cases, they can avoid the heap allocation altogether.
+        * Readability: For longer methods, local functions can be more readable than lambda expressions. They can be named appropriately, which can make code more self-explanatory.
+        * Versatility: Local functions can have multiple statements, can specify return types explicitly, can include ref, out, and in parameters, and can have generic type parameters, all of which aren't straightforward with lambda expressions.
+        * `No Delegate Overhead`: Lambdas always create a delegate (or an expression tree). Local functions are just methods and only create delegates when used as such.
+        * Clearer Variable Capturing Semantics: With local functions, it's clearer when you're capturing a variable from the outer scope, and you avoid potential issues with late binding of variables which can be an issue with lambdas.
+        * Recursion: Local functions can be recursive, which is not directly achievable with lambdas.
+    * Here's a basic comparison:
+        * Lambda:
+        ```c#
+        Func<int, int, int> add = (x, y) => x + y;
+        Console.WriteLine(add(3, 4));
+        ```
+        * Local Function:
+        ```c#
+        int Add(int x, int y) => x + y;
+        Console.WriteLine(Add(3, 4));
+        ```
+    * In conclusion, while lambdas are still incredibly useful for many scenarios, especially for short inline methods or LINQ queries, local functions offer a powerful alternative that can be more efficient and clearer in certain situations. The IDE0039 warning is there to help developers be aware of these benefits in suitable contexts.
+
 ## C#
 
 * [C# docs - get started, tutorials, reference. | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/)
