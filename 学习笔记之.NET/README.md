@@ -928,6 +928,46 @@ if (limitsLookup.TryGetValue(4, out (int Min, int Max) limits))
     * Statement lambda that has a statement block as its body:
         * `(input-parameters) => { <sequence-of-statements> }`
 
+###### MISC
+
+* C# lambda function vs method ?
+    * Lambda expressions and methods in C# serve different purposes and can be used based on different use cases. Let's compare the two in terms of various aspects:
+        * Definition:
+            * Lambda: A lambda expression is an anonymous function (without a name) that can contain expressions and statements. It uses the => operator.
+                * `(x, y) => x + y`
+            * Method: A method is a named block of code that can be invoked through its name.
+            ```c#
+            int Add(int x, int y)
+            {
+                return x + y;
+            }
+            ```
+        * Scope:
+            * Lambda: Usually has a limited scope. Typically defined inside a method to be used for a short span like LINQ queries.
+            * Method: Can be accessed from different parts of the class or outside the class based on its access modifier.
+        * Reuse:
+            * Lambda: Typically used for a one-time, specific purpose. Can't be reused unless assigned to a delegate variable.
+            * Method: Defined once and can be called multiple times, promoting reusability.
+        * Performance:
+            * Lambda: If it captures variables from an outer function, it might cause heap allocations.
+            * Method: Generally more performant as it doesn't have the overhead of delegate creation unless used as a delegate.
+        * Versatility:
+            * Lambda: Short, more concise, and can be written inline. However, it's limited in capabilities (e.g., can't have ref/out parameters).
+            * Method: More versatile, can have multiple statements, explicit return types, ref/out parameters, etc.
+        * State:
+            * Lambda: Can capture and hold onto the state from its enclosing scope. This is termed as a "closure".
+            * Method: Does not capture any state from outside its scope unless it's a local function.
+        * Readability:
+            * Lambda: Great for short operations like LINQ. But for complex operations, it can hamper readability.
+            * Method: Clearer to understand, especially for complex operations.
+        * Recursion:
+            * Lambda: Direct recursion is not straightforward.
+            * Method: Can easily be recursive.
+    * In conclusion:
+        * Use lambda expressions when you need a short-lived, concise function, often as an argument to methods like those in LINQ or when you want to leverage closures.
+        * Use methods when you have a block of code that you need to reuse multiple times, for more complex operations, or when you need full method capabilities like explicit access modifiers, ref/out parameters, etc.
+    * Each has its place, and understanding their characteristics will help you decide which to use in a given scenario.
+
 #### Statements
 
 ##### [using statement - ensure the correct use of disposable objects](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/using)
