@@ -918,6 +918,16 @@ if (limitsLookup.TryGetValue(4, out (int Min, int Max) limits))
 
 * In a query expression, the select clause specifies the type of values that will be produced when the query is executed. The result is based on the evaluation of all the previous clauses and on any expressions in the select clause itself. A query expression must terminate with either a select clause or a group clause.
 
+#### [operators and expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
+
+##### [Lambda expressions and anonymous functions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
+
+* You use a lambda expression to create an anonymous function. Use the lambda declaration operator => to separate the lambda's parameter list from its body. A lambda expression can be of any of the following two forms:
+    * Expression lambda that has an expression as its body:
+        * `(input-parameters) => expression`
+    * Statement lambda that has a statement block as its body:
+        * `(input-parameters) => { <sequence-of-statements> }`
+
 #### Statements
 
 ##### [using statement - ensure the correct use of disposable objects](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/using)
