@@ -85,6 +85,35 @@ namespace StringManipulation
 }
 ```
 
+#### [System.Collections Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.collections?view=net-7.0)
+
+* Contains interfaces and classes that define various collections of objects, such as lists, queues, bit arrays, hash tables and dictionaries.
+
+##### MISC
+
+* C# ToList vs ToArray ?
+    * In C#, both ToList() and ToArray() are extension methods provided by the LINQ framework to convert collections into a List<T> or an T[] array, respectively. The choice between the two largely depends on the specific requirements of your application and how you intend to use the resulting collection.
+    * Here are some considerations to help you decide between ToList() and ToArray():
+        * Mutability:
+            * ToList(): Returns a List<T>, which is a dynamic data structure. You can add, remove, or modify items after conversion.
+            * ToArray(): Returns a fixed-size array. Once the size is set, you can't add or remove items, though you can change the values of existing items.
+        * Performance:
+            * ToList(): In general, accessing an item in a list by index (e.g., list[5]) is an O(1) operation, just like arrays. However, adding items can occasionally incur overhead if the list needs to resize.
+            * ToArray(): Arrays generally have slightly better cache locality due to their contiguous memory nature, which can lead to better performance in certain scenarios.
+        * Memory Overhead:
+            * ToList(): A List<T> internally uses an array to manage its elements. However, this array often has a capacity larger than the current count of elements to accommodate future additions without frequent reallocations. This can lead to some memory overhead.
+            * ToArray(): Arrays are of fixed size, so there's no additional memory allocated beyond what's needed for the elements it contains.
+        * API Compatibility:
+            * ToList(): Many APIs, especially older ones, accept IList<T> or List<T> as parameters.
+            * ToArray(): Some APIs might specifically require arrays.
+        * Intended Usage:
+            * ToList(): If you plan to modify (add/remove) the collection after the conversion frequently, List<T> is preferable.
+            * ToArray(): If you're creating a collection that should remain fixed in size after creation or you're interfacing with APIs that work better with arrays, then T[] is preferable.
+        * Semantics:
+            * ToList(): Indicates intent that the data might be modified or that a dynamic data structure is preferable.
+            * ToArray(): Indicates intent that the data should be seen as a fixed set or sequence.
+    * In general, if you're unsure which to use and don't have a specific need for the features of a List<T>, then ToArray() is a good default choice due to its simpler semantics and potentially better performance characteristics in certain scenarios. However, if you need a flexible, mutable data structure, then ToList() is the way to go.
+
 #### [System.Linq Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.linq?view=net-7.0)
 
 ##### [Queryable Class](https://learn.microsoft.com/en-us/dotnet/api/system.linq.queryable?view=net-7.0)
