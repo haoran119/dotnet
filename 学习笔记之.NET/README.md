@@ -114,6 +114,168 @@ namespace StringManipulation
             * ToArray(): Indicates intent that the data should be seen as a fixed set or sequence.
     * In general, if you're unsure which to use and don't have a specific need for the features of a List<T>, then ToArray() is a good default choice due to its simpler semantics and potentially better performance characteristics in certain scenarios. However, if you need a flexible, mutable data structure, then ToList() is the way to go.
 
+#### [System.Collections.Generic Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic?view=net-7.0)
+
+* Contains interfaces and classes that define generic collections, which allow users to create strongly typed collections that provide better type safety and performance than non-generic strongly typed collections.
+
+##### [`Dictionary<TKey,TValue> Class`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-7.0)
+
+* Examples
+    * The following code example creates an empty Dictionary<TKey,TValue> of strings with string keys and uses the Add method to add some elements. The example demonstrates that the Add method throws an ArgumentException when attempting to add a duplicate key.
+    * The example uses the Item[] property (the indexer in C#) to retrieve values, demonstrating that a KeyNotFoundException is thrown when a requested key is not present, and showing that the value associated with a key can be replaced.
+    * The example shows how to use the TryGetValue method as a more efficient way to retrieve values if a program often must try key values that are not in the dictionary, and it shows how to use the ContainsKey method to test whether a key exists before calling the Add method.
+    * The example shows how to enumerate the keys and values in the dictionary and how to enumerate the keys and values alone using the Keys property and the Values property.
+    * Finally, the example demonstrates the Remove method.
+```c#
+// Create a new dictionary of strings, with string keys.
+//
+Dictionary<string, string> openWith =
+    new Dictionary<string, string>();
+
+// Add some elements to the dictionary. There are no
+// duplicate keys, but some of the values are duplicates.
+openWith.Add("txt", "notepad.exe");
+openWith.Add("bmp", "paint.exe");
+openWith.Add("dib", "paint.exe");
+openWith.Add("rtf", "wordpad.exe");
+
+// The Add method throws an exception if the new key is
+// already in the dictionary.
+try
+{
+    openWith.Add("txt", "winword.exe");
+}
+catch (ArgumentException)
+{
+    Console.WriteLine("An element with Key = \"txt\" already exists.");
+}
+
+// The Item property is another name for the indexer, so you
+// can omit its name when accessing elements.
+Console.WriteLine("For key = \"rtf\", value = {0}.",
+    openWith["rtf"]);
+
+// The indexer can be used to change the value associated
+// with a key.
+openWith["rtf"] = "winword.exe";
+Console.WriteLine("For key = \"rtf\", value = {0}.",
+    openWith["rtf"]);
+
+// If a key does not exist, setting the indexer for that key
+// adds a new key/value pair.
+openWith["doc"] = "winword.exe";
+
+// The indexer throws an exception if the requested key is
+// not in the dictionary.
+try
+{
+    Console.WriteLine("For key = \"tif\", value = {0}.",
+        openWith["tif"]);
+}
+catch (KeyNotFoundException)
+{
+    Console.WriteLine("Key = \"tif\" is not found.");
+}
+
+// When a program often has to try keys that turn out not to
+// be in the dictionary, TryGetValue can be a more efficient
+// way to retrieve values.
+string value = "";
+if (openWith.TryGetValue("tif", out value))
+{
+    Console.WriteLine("For key = \"tif\", value = {0}.", value);
+}
+else
+{
+    Console.WriteLine("Key = \"tif\" is not found.");
+}
+
+// ContainsKey can be used to test keys before inserting
+// them.
+if (!openWith.ContainsKey("ht"))
+{
+    openWith.Add("ht", "hypertrm.exe");
+    Console.WriteLine("Value added for key = \"ht\": {0}",
+        openWith["ht"]);
+}
+
+// When you use foreach to enumerate dictionary elements,
+// the elements are retrieved as KeyValuePair objects.
+Console.WriteLine();
+foreach( KeyValuePair<string, string> kvp in openWith )
+{
+    Console.WriteLine("Key = {0}, Value = {1}",
+        kvp.Key, kvp.Value);
+}
+
+// To get the values alone, use the Values property.
+Dictionary<string, string>.ValueCollection valueColl =
+    openWith.Values;
+
+// The elements of the ValueCollection are strongly typed
+// with the type that was specified for dictionary values.
+Console.WriteLine();
+foreach( string s in valueColl )
+{
+    Console.WriteLine("Value = {0}", s);
+}
+
+// To get the keys alone, use the Keys property.
+Dictionary<string, string>.KeyCollection keyColl =
+    openWith.Keys;
+
+// The elements of the KeyCollection are strongly typed
+// with the type that was specified for dictionary keys.
+Console.WriteLine();
+foreach( string s in keyColl )
+{
+    Console.WriteLine("Key = {0}", s);
+}
+
+// Use the Remove method to remove a key/value pair.
+Console.WriteLine("\nRemove(\"doc\")");
+openWith.Remove("doc");
+
+if (!openWith.ContainsKey("doc"))
+{
+    Console.WriteLine("Key \"doc\" is not found.");
+}
+
+/* This code example produces the following output:
+
+An element with Key = "txt" already exists.
+For key = "rtf", value = wordpad.exe.
+For key = "rtf", value = winword.exe.
+Key = "tif" is not found.
+Key = "tif" is not found.
+Value added for key = "ht": hypertrm.exe
+
+Key = txt, Value = notepad.exe
+Key = bmp, Value = paint.exe
+Key = dib, Value = paint.exe
+Key = rtf, Value = winword.exe
+Key = doc, Value = winword.exe
+Key = ht, Value = hypertrm.exe
+
+Value = notepad.exe
+Value = paint.exe
+Value = paint.exe
+Value = winword.exe
+Value = winword.exe
+Value = hypertrm.exe
+
+Key = txt
+Key = bmp
+Key = dib
+Key = rtf
+Key = doc
+Key = ht
+
+Remove("doc")
+Key "doc" is not found.
+*/
+```
+
 #### [System.Linq Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.linq?view=net-7.0)
 
 ##### [Queryable Class](https://learn.microsoft.com/en-us/dotnet/api/system.linq.queryable?view=net-7.0)
@@ -364,6 +526,10 @@ public sealed class App
         Console.WriteLine(result); // Outputs: Hello World
         ```
     * For most scenarios where you're just concatenating two strings a few times, using the `+` operator or `string.Concat` will be sufficiently efficient and provide clear, concise code. However, if you're performing many string manipulations in a loop or need to concatenate a large number of strings, `StringBuilder` is the better choice due to its optimized memory handling.
+
+### [.NET fundamentals](https://learn.microsoft.com/en-us/dotnet/fundamentals/)
+
+#### [Collections and Data Structures](https://learn.microsoft.com/en-us/dotnet/standard/collections/)
 
 ### [.NET tools and diagnostics](https://learn.microsoft.com/en-us/dotnet/navigate/tools-diagnostics/)
 
