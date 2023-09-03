@@ -972,6 +972,51 @@ if (limitsLookup.TryGetValue(4, out (int Min, int Max) limits))
 
 ###### MISC
 
+* C# lambda function ?
+    * In C#, a lambda expression is an anonymous function or a function without a name. Lambda expressions are particularly useful for short functions that are used only a few times and are not required elsewhere. They are often used as arguments to higher-order functions, or as elements of LINQ queries.
+    * The lambda expression syntax is as follows:
+        * `(parameters) => expression`
+    * Or for multiple statements:
+        * `(parameters) => { statements }`
+    * Examples
+        * No parameter:
+            * `() => 5`
+            * This lambda function takes no parameters and returns 5.
+        * One parameter:
+            * `x => x * x`
+            * This lambda function squares its input.
+        * Multiple parameters:
+            * `(x, y) => x + y`
+            * This lambda function takes two parameters and returns their sum.
+        * Multiple statements:
+            ```c#
+            (x, y) => 
+            {
+                int sum = x + y;
+                return sum;
+            }
+            ```
+            * This lambda function takes two parameters, adds them, and returns the sum.
+    * Usage with Func and Action
+        * Lambda expressions are often used with `Func` and `Action` types, which are built-in generic delegates.
+        ```c#
+        Func<int, int> square = x => x * x;
+        Console.WriteLine(square(5)); // Outputs "25"
+        
+        Action<string> greet = name => Console.WriteLine("Hello, " + name);
+        greet("Alice"); // Outputs "Hello, Alice"
+        
+        Func<int, int, int> add = (x, y) => x + y;
+        Console.WriteLine(add(3, 4)); // Outputs "7"
+        ```
+    * Usage in LINQ
+        * Lambda expressions are commonly used in LINQ queries:
+        ```c#
+        var numbers = new[] { 0, 1, 2, 3, 4 };
+        var squares = numbers.Select(x => x * x);
+        ```
+        * In this example, squares will contain {0, 1, 4, 9, 16}.
+    * Lambda expressions are a very flexible and powerful feature in C#, especially when working with collections and LINQ.
 * C# lambda function vs method ?
     * Lambda expressions and methods in C# serve different purposes and can be used based on different use cases. Let's compare the two in terms of various aspects:
         * Definition:
