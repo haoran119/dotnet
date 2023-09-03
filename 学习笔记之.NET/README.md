@@ -365,6 +365,26 @@ public sealed class App
         ```
     * For most scenarios where you're just concatenating two strings a few times, using the `+` operator or `string.Concat` will be sufficiently efficient and provide clear, concise code. However, if you're performing many string manipulations in a loop or need to concatenate a large number of strings, `StringBuilder` is the better choice due to its optimized memory handling.
 
+### [.NET tools and diagnostics](https://learn.microsoft.com/en-us/dotnet/navigate/tools-diagnostics/)
+
+#### [Code analysis](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview?tabs=net-7)
+
+##### [IDE0039: Use local function instead of lambda](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0039)
+
+```c#
+// csharp_style_prefer_local_over_anonymous_function = true
+int fibonacci(int n)
+{
+    return n <= 1 ? 1 : fibonacci(n-1) + fibonacci(n-2);
+}
+
+// csharp_style_prefer_local_over_anonymous_function = false
+Func<int, int> fibonacci = (int n) =>
+{
+    return n <= 1 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
+};
+```
+
 ## C#
 
 * [C# docs - get started, tutorials, reference. | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/)
