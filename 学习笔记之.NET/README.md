@@ -1178,6 +1178,60 @@ if (limitsLookup.TryGetValue(4, out (int Min, int Max) limits))
 
 ###### [readonly](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/readonly)
 
+#
+MISC
+
+* C# readonly ?
+    * `In C#, the readonly modifier is used to declare that a field can only be assigned at the time of declaration or within a constructor in the same class. Once assigned, its value cannot be changed, making it effectively immutable for the lifespan of the containing object.`
+    * Here are some key points and examples related to readonly:
+        * Basic Usage:
+            ```c#
+            public class MyClass
+            {
+                private readonly int _myField;
+            
+                public MyClass(int value)
+                {
+                    _myField = value;
+                }
+            }
+            ```
+            * In the above example, _myField is marked as readonly, so it can be assigned a value only during declaration or in the constructor.
+        * Compared to const:
+            * While both readonly and const seem similar in that they both prevent a variable from being modified, there are key differences:
+                * const: It must be initialized at the time of declaration, and the value cannot change. The value must be a compile-time constant. It's static by default.
+                * readonly: It can be initialized at declaration or in a constructor. It's useful for values that are known at runtime but not at compile-time, like values passed into a constructor.
+        * When to use readonly:
+            * Use readonly when you have a field that you want to prevent from being changed after the object construction, especially if that field's value is determined at runtime. This is often seen in classes that are meant to be immutable after creation.
+        * Limitation:
+            * If the readonly field is a reference type, the reference itself cannot change, but the object it refers to can be modified. For example:
+            ```c#
+            public class Data
+            {
+                public int Value { get; set; }
+            }
+            
+            public class MyClass
+            {
+                private readonly Data _data = new Data();
+            
+                public MyClass()
+                {
+                    _data.Value = 10;
+                }
+            
+                public void SomeMethod()
+                {
+                    // This is valid. We are modifying the object that _data refers to.
+                    _data.Value = 20;
+            
+                    // This would be invalid. We cannot change the reference itself.
+                    // _data = new Data();
+                }
+            }
+            ```
+            * In the above example, even though _data is readonly, the Value property on the object it points to can still be modified. If you truly want an immutable object, you'd have to ensure immutability on the object's class itself, not just the readonly reference to it.
+
 ##### [Query keywords](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/query-keywords)
 
 ###### [select clause](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/select-clause)
