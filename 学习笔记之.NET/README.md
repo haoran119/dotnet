@@ -557,6 +557,18 @@ public sealed class App
 
 #### [Code analysis](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview?tabs=net-7)
 
+##### [IDE0007 and IDE0008: 'var' preferences](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0007-ide0008)
+
+* These two style rules define whether the var keyword or an explicit type should be used in a variable declaration. To enforce that var is used, set the severity of IDE0007 to warning or error. To enforce that the explicit type is used, set the severity of IDE0008 to warning or error.
+
+* C# 'var' preferences (IDE0007 and IDE0008) Use explicit type instead of var ?
+    * In C#, the var keyword allows for implicitly typed local variables when the compiler can infer the type of the variable from the expression on the right side of the initialization statement.
+    * While var can make the code cleaner and more concise, especially when dealing with complex generic types, some developers prefer to always use explicit types for clarity. Using explicit types can make the code more readable, especially for developers unfamiliar with the codebase.
+    * Visual Studio provides two code style rules related to this:
+        * IDE0007 (Use 'var' instead of explicit type): This rule suggests using var when the type is apparent from the right side of the assignment.
+        * IDE0008 (Use explicit type instead of 'var'): This rule suggests using an explicit type instead of var.
+    * If you want to enforce using explicit types instead of var, you'll be looking at enforcing IDE0008.
+
 ##### [IDE0039: Use local function instead of lambda](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0039)
 
 ```c#
