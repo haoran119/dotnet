@@ -874,6 +874,59 @@ public class Person : INotifyPropertyChanged
 
 ### [C# Programming Guide](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/?redirectedfrom=MSDN)
 
+#### [Fundamentals](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/)
+
+##### [Classes, structs, and records in C#](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/)
+
+###### MISC
+
+* C# is it ok to ?
+    ```c#
+    classA key = new classA();
+    ...
+    key = new classA();
+    ```
+    * Yes, it's absolutely okay to do that in C#. What you're doing is:
+        * Declaring a variable named key of type classA and initializing it with a new instance of classA.
+        * Later, re-assigning the key variable to reference a different new instance of classA.
+    * Here's a breakdown of the actions:
+    ```c#
+    classA key = new classA();  // key now references the first instance of classA.
+    
+    // Some other code...
+    
+    key = new classA();  // key now references a new (second) instance of classA. 
+                         // The reference to the first instance will be lost unless some other reference still points to it.
+    ```
+    * `If no other references are pointing to the first instance of classA after the reassignment, then it becomes eligible for garbage collection. The .NET garbage collector will automatically handle the cleanup of unreferenced objects in memory.`
+* C# default accessibility modifier for class member ?
+    * In C#, if you don't specify an accessibility modifier for a member of a class, it will `default to private`. Similarly, if you don't specify an accessibility modifier for a class itself, it `defaults to internal when declared within a namespace`.
+    * Here's a breakdown:
+        * Class Members:
+            * Fields: private
+            * Methods: private
+            * Nested Classes: private
+            * Nested Interfaces: private
+            * Properties: private
+            * Events: private
+            * Delegates: private
+        * Top-Level Types:
+            * Classes: internal
+            * Interfaces: internal
+            * Delegates: internal
+            * Enums: internal
+            * Structs: internal
+    * So, for example, consider the following class:
+    ```c#
+    class MyClass
+    {
+        int myField;           // private by default
+        void MyMethod() { }    // private by default
+    }
+    ```
+    * myField and MyMethod are both implicitly private.
+    * `Remember, it's always a good practice to be explicit about accessibility.` This ensures clarity for anyone reading your code, even though the C# language has these defaults.
+
 ### [C# reference](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/)
 
 #### Types
