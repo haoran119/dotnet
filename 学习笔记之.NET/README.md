@@ -896,7 +896,8 @@ public class Person : INotifyPropertyChanged
     // Some other code...
     
     key = new classA();  // key now references a new (second) instance of classA. 
-                         // The reference to the first instance will be lost unless some other reference still points to it.
+                         // The reference to the first instance will be lost unless some other reference
+                        // still points to it.
     ```
     * `If no other references are pointing to the first instance of classA after the reassignment, then it becomes eligible for garbage collection. The .NET garbage collector will automatically handle the cleanup of unreferenced objects in memory.`
 * C# default accessibility modifier for class member ?
