@@ -1174,6 +1174,10 @@ if (limitsLookup.TryGetValue(4, out (int Min, int Max) limits))
 
 * Keywords are predefined, reserved identifiers that have special meanings to the compiler. They can't be used as identifiers in your program unless they include @ as a prefix. For example, @if is a valid identifier, but if isn't because if is a keyword.
 
+##### Modifiers
+
+###### [readonly](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/readonly)
+
 ##### [Query keywords](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/query-keywords)
 
 ###### [select clause](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/select-clause)
