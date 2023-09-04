@@ -45,6 +45,28 @@
 #
 MISC
 
+* C# Substring ?
+    * In C#, the `Substring` method is used to retrieve a substring from a string. It's a method of the `string` class.
+    * Here's how you can use it:
+        * 1. Substring(int startIndex):
+            * This method returns a substring that begins at a specified character position and includes all subsequent characters.
+            ```c#
+            string text = "Hello World";
+            string sub = text.Substring(6);  // Outputs: "World"
+            Console.WriteLine(sub);
+            ```
+        * 2. Substring(int startIndex, int length):
+            * This method returns a substring that begins at a specified character position and has a specified length.
+            ```c#
+            string text = "Hello World";
+            string sub = text.Substring(0, 5);  // Outputs: "Hello"
+            Console.WriteLine(sub);
+            ```
+    * Things to consider:
+        * If startIndex is equal to the length of the string instance, the method returns an empty string.
+        * If startIndex or length is outside the range of valid indices for the current string, the method will throw an ArgumentOutOfRangeException.
+        * The index is zero-based, so the first character in the string is at index 0, the second at index 1, and so on.
+    * Always ensure that the provided indices are valid for the given string to avoid runtime exceptions.
 * C# split string "ABCDEF" into "ABC" and "DEF" and convert them with func foo(string) and then combine them to string and return ?
 ```c#
 using System;
