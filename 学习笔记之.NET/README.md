@@ -300,6 +300,80 @@ Key "doc" is not found.
 
 ###### MISC
 
+* C# Dictionary ?
+    * In C#, a `Dictionary<TKey, TValue>` is a collection of key-value pairs where each key must be unique. It provides fast lookups to find a value by its key. `Dictionary<TKey, TValue>` is a part of the `System.Collections.Generic` namespace.
+    * Basic Usage:
+        * Initialization:
+            * `Dictionary<string, int> ageDictionary = new Dictionary<string, int>();`
+        * Adding items:
+        ```c#
+        ageDictionary.Add("Alice", 28);
+        ageDictionary["Bob"] = 35;  // Another way to add items
+        ```
+        * Retrieving items:
+            * `int aliceAge = ageDictionary["Alice"];`
+        * Checking for keys:
+            * `bool hasAlice = ageDictionary.ContainsKey("Alice"); // returns true`
+        * Removing items:
+            * `ageDictionary.Remove("Alice");`
+    * Example:
+    ```c#
+    using System;
+    using System.Collections.Generic;
+    
+    namespace DictionaryExample
+    {
+        class Program
+        {
+            static void Main()
+            {
+                Dictionary<string, int> ages = new Dictionary<string, int>
+                {
+                    { "Alice", 28 },
+                    { "Bob", 35 },
+                    { "Charlie", 24 }
+                };
+    
+                // Add a new item
+                ages["David"] = 30;
+    
+                // Check if a key exists
+                if (ages.ContainsKey("Bob"))
+                {
+                    Console.WriteLine($"Bob's age is: {ages["Bob"]}");
+                }
+    
+                // Iterate over the dictionary
+                foreach (var pair in ages)
+                {
+                    Console.WriteLine($"{pair.Key} is {pair.Value} years old.");
+                }
+    
+                // Removing an item
+                ages.Remove("Alice");
+    
+                // Count the number of items in the dictionary
+                Console.WriteLine($"There are {ages.Count} people in the dictionary.");
+            }
+        }
+    }
+    ```
+    * Points to Note:
+        * Key Uniqueness: The keys in a Dictionary are unique. If you try to insert a duplicate key, an exception (ArgumentException) will be thrown.
+        * Performance: Operations like adding and fetching items from a Dictionary are very fast (generally O(1)).
+        * Ordering: A Dictionary doesn't guarantee a specific order of its elements. If you need ordering, consider using `SortedDictionary<TKey, TValue>` or OrderedDictionary.
+        * Value Retrieval: When using the indexer to retrieve a value (e.g., dict[key]), if the key doesn't exist, a KeyNotFoundException will be thrown. To avoid this, you can use TryGetValue:
+            ```c#
+            if (ages.TryGetValue("Eve", out int age))
+            {
+                Console.WriteLine($"Eve's age is: {age}");
+            }
+            else
+            {
+                Console.WriteLine("Eve is not in the dictionary.");
+            }
+            ```
+            * The TryGetValue method attempts to get the value of the key passed as a parameter. If the key exists, it returns true and outputs the value to the out parameter; otherwise, it returns false.
 * C# TryGetValue vs ContainsKey ?
     * Both TryGetValue and ContainsKey are methods provided by the `Dictionary<TKey, TValue>` class in C#. They are used to determine whether a specific key exists within the dictionary, but they serve slightly different purposes and can be used in different scenarios.
     * 1. ContainsKey
