@@ -298,6 +298,60 @@ Key "doc" is not found.
 */
 ```
 
+###### MISC
+
+* C# TryGetValue vs ContainsKey ?
+    * Both TryGetValue and ContainsKey are methods provided by the `Dictionary<TKey, TValue>` class in C#. They are used to determine whether a specific key exists within the dictionary, but they serve slightly different purposes and can be used in different scenarios.
+    * 1. ContainsKey
+        * Purpose: Determines whether the dictionary contains a specific key.
+        * Return Value: Returns true if the key is found; otherwise, false.
+        * Usage:
+        ```c#
+        Dictionary<string, int> dict = new Dictionary<string, int>
+        {
+            { "one", 1 },
+            { "two", 2 }
+        };
+        
+        if (dict.ContainsKey("one"))
+        {
+            int value = dict["one"];
+            Console.WriteLine(value);
+        }
+        ```
+        * Advantages:
+            * Straightforward to use when you only want to check for the presence of a key.
+        * Disadvantages:
+            * If you want to get the value associated with the key, you have to access the dictionary twice: once for ContainsKey and once for the indexer (dict[key]). This makes the process slightly less efficient.
+    * 2. TryGetValue
+        * Purpose: Tries to get the value associated with a specific key.
+        * Return Value: Returns true if the key was found and sets the out parameter to the value associated with the key. Returns false if the key was not found, and the out parameter will have the default value of the value type.
+        * Usage:
+        ```c#
+        Dictionary<string, int> dict = new Dictionary<string, int>
+        {
+            { "one", 1 },
+            { "two", 2 }
+        };
+        
+        if (dict.TryGetValue("one", out int value))
+        {
+            Console.WriteLine(value);
+        }
+        else
+        {
+            Console.WriteLine("Key not found.");
+        }
+        ```
+        * Advantages:
+            * Efficient because you can check for the presence of a key and retrieve its value in a single operation.
+            * Avoids potential exceptions. When you use the indexer of a dictionary with a non-existent key, it throws a KeyNotFoundException. TryGetValue avoids this by returning a boolean.
+        * Disadvantages:
+            * Slightly more verbose than ContainsKey if you're only interested in checking the presence of a key.
+    * Conclusion:
+        * `If you only want to check whether a key exists and don't need its associated value, then ContainsKey can be more concise.`
+        * `If you want to check for the presence of a key and also retrieve its value, TryGetValue is more efficient and is the recommended approach.`
+
 #### [System.Linq Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.linq?view=net-7.0)
 
 ##### [Queryable Class](https://learn.microsoft.com/en-us/dotnet/api/system.linq.queryable?view=net-7.0)
