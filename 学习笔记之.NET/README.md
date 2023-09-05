@@ -426,6 +426,117 @@ Key "doc" is not found.
         * `If you only want to check whether a key exists and don't need its associated value, then ContainsKey can be more concise.`
         * `If you want to check for the presence of a key and also retrieve its value, TryGetValue is more efficient and is the recommended approach.`
 
+##### [`HashSet<T> Class`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1?view=net-7.0)
+
+* Represents a set of values.
+* Examples
+    * The following example demonstrates how to merge two disparate sets. This example creates two HashSet<T> objects, and populates them with even and odd numbers, respectively. A third `HashSet<T>` object is created from the set that contains the even numbers. The example then calls the UnionWith method, which adds the odd number set to the third set.
+```c#
+HashSet<int> evenNumbers = new HashSet<int>();
+HashSet<int> oddNumbers = new HashSet<int>();
+
+for (int i = 0; i < 5; i++)
+{
+    // Populate numbers with just even numbers.
+    evenNumbers.Add(i * 2);
+
+    // Populate oddNumbers with just odd numbers.
+    oddNumbers.Add((i * 2) + 1);
+}
+
+Console.Write("evenNumbers contains {0} elements: ", evenNumbers.Count);
+DisplaySet(evenNumbers);
+
+Console.Write("oddNumbers contains {0} elements: ", oddNumbers.Count);
+DisplaySet(oddNumbers);
+
+// Create a new HashSet populated with even numbers.
+HashSet<int> numbers = new HashSet<int>(evenNumbers);
+Console.WriteLine("numbers UnionWith oddNumbers...");
+numbers.UnionWith(oddNumbers);
+
+Console.Write("numbers contains {0} elements: ", numbers.Count);
+DisplaySet(numbers);
+
+void DisplaySet(HashSet<int> collection)
+{
+    Console.Write("{");
+    foreach (int i in collection)
+    {
+        Console.Write(" {0}", i);
+    }
+    Console.WriteLine(" }");
+}
+
+/* This example produces output similar to the following:
+* evenNumbers contains 5 elements: { 0 2 4 6 8 }
+* oddNumbers contains 5 elements: { 1 3 5 7 9 }
+* numbers UnionWith oddNumbers...
+* numbers contains 10 elements: { 0 2 4 6 8 1 3 5 7 9 }
+*/
+```
+
+###### MISC
+
+* C# HashSet ?
+    * In C#, `HashSet<T>` is a collection that contains unique elements and provides methods to manipulate sets. It's a part of the System.Collections.Generic namespace.
+    * Here's a brief overview and some examples of how to use `HashSet<T>`:
+        * Advantages of HashSet:
+            * Uniqueness: All elements in a HashSet are unique. If you try to add a duplicate element to a HashSet, it won't throw an error, but the element won't be added.
+            * Performance: Operations like adding, removing, and checking the existence of an item (i.e., Contains) are generally O(1) – meaning they're very fast.
+        * Examples:
+        ```c#
+        using System;
+        using System.Collections.Generic;
+        
+        namespace HashSetExample
+        {
+            class Program
+            {
+                static void Main()
+                {
+                    // Creating a HashSet
+                    HashSet<int> numbers = new HashSet<int>();
+        
+                    // Adding elements to HashSet
+                    numbers.Add(1);
+                    numbers.Add(2);
+                    numbers.Add(3);
+                    numbers.Add(4);
+                    numbers.Add(5);
+        
+                    // Attempting to add a duplicate item
+                    numbers.Add(3); // This will not get added as 3 is already present
+        
+                    // Displaying elements of HashSet
+                    Console.WriteLine("Elements in HashSet:");
+                    foreach (var num in numbers)
+                    {
+                        Console.WriteLine(num);
+                    }
+        
+                    // Removing an item
+                    numbers.Remove(2);
+        
+                    // Checking if an item exists
+                    bool containsThree = numbers.Contains(3); // True
+                    bool containsTwo = numbers.Contains(2); // False after removal
+        
+                    Console.WriteLine($"HashSet contains number 3: {containsThree}");
+                    Console.WriteLine($"HashSet contains number 2: {containsTwo}");
+                }
+            }
+        }
+        ```
+        * Additional HashSet Operations:
+            * HashSet also provides some set-specific operations:
+                * UnionWith: Modifies the current HashSet object to contain all elements that are present in itself, another collection, or both.
+                * IntersectWith: Modifies the current HashSet object to contain only elements that are present in itself and another collection.
+                * ExceptWith: Removes all elements in the specified collection from the current HashSet object.
+                * IsSubsetOf: Determines whether a HashSet object is a subset of the specified collection.
+                * IsSupersetOf: Determines whether a HashSet object is a superset of the specified collection.
+            * These operations are useful when you want to perform set-based operations on your data.
+
 #### [System.Linq Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.linq?view=net-7.0)
 
 ##### [Queryable Class](https://learn.microsoft.com/en-us/dotnet/api/system.linq.queryable?view=net-7.0)
