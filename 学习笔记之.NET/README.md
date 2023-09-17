@@ -537,6 +537,131 @@ void DisplaySet(HashSet<int> collection)
                 * IsSupersetOf: Determines whether a HashSet object is a superset of the specified collection.
             * These operations are useful when you want to perform set-based operations on your data.
 
+##### [`IList<T> Interface`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1?view=net-7.0)
+
+* Represents a collection of objects that can be individually accessed by index.
+* `public interface IList<T> : System.Collections.Generic.ICollection<T>, System.Collections.Generic.IEnumerable<T>`
+
+###### Methods
+
+#
+[`IList<T>.RemoveAt(Int32) Method`](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1.removeat?view=net-7.0)
+
+* Removes the `IList<T>` item at the specified index.
+* `public void RemoveAt (int index);`
+
+###### MISC
+
+* C# list RemoveAt() ?
+    * In C#, the `List<T>` class provides a method called RemoveAt() that is used to remove an element at a specific index.
+    * Syntax:
+        * `public void RemoveAt (int index);`
+    * Parameters:
+        * `index`: The zero-based index of the item to remove.
+    * Exceptions:
+        * `ArgumentOutOfRangeException`: This is thrown if index is not a valid index in the `List<T>`.
+    * Example:
+        * Let's consider a simple example where we have a list of strings and we want to remove an item at a specific index:
+        ```c#
+        using System;
+        using System.Collections.Generic;
+        
+        public class Example
+        {
+            public static void Main()
+            {
+                List<string> fruits = new List<string> { "Apple", "Banana", "Cherry", "Date", "Fig" };
+        
+                Console.WriteLine("Original list:");
+                foreach (string fruit in fruits)
+                {
+                    Console.WriteLine(fruit);
+                }
+        
+                // Remove the fruit at index 2, which is "Cherry"
+                fruits.RemoveAt(2);
+        
+                Console.WriteLine("\nList after removing item at index 2:");
+                foreach (string fruit in fruits)
+                {
+                    Console.WriteLine(fruit);
+                }
+            }
+        }
+        
+        // Output:
+        
+        // Original list:
+        Apple
+        Banana
+        Cherry
+        Date
+        Fig
+        
+        // List after removing item at index 2:
+        Apple
+        Banana
+        Date
+        Fig
+        ```
+    * As you can see, the `RemoveAt()` method removes the item at the specified index from the list.
+* Compare the following code with List.RemoveAt() to remove an element at a specific index in array ?
+    ```c#
+    using System;
+    
+    public class Program
+    {
+        public static T[] RemoveAt<T>(T[] source, int index)
+        {
+            T[] dest = new T[source.Length - 1];
+            if (index > 0)
+                Array.Copy(source, 0, dest, 0, index);
+    
+            if (index < source.Length - 1)
+                Array.Copy(source, index + 1, dest, index, source.Length - index - 1);
+    
+            return dest;
+        }
+    
+        public static void Main()
+        {
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            numbers = RemoveAt(numbers, 2); // This will remove the number '3' at index 2
+    
+            foreach (var num in numbers)
+            {
+                Console.WriteLine(num);
+            }
+        }
+    }
+    ```
+    * Certainly. Let's first compare the behavior of the two:
+        * Array with custom RemoveAt method:
+            * Arrays are fixed-size collections. They cannot be resized once created.
+            * If you want to remove an item, you need to create a new array and copy items over, skipping the one to be removed.
+            * The custom RemoveAt method for arrays involves more memory allocation (because of creating a new array) and more work in copying items over.
+        * List with RemoveAt method:
+            * Lists are dynamic collections. Their size can be changed.
+            * The built-in List.RemoveAt method is optimized for removing items.
+            * Removing an item from a list does not involve creating a new list (though the underlying array may be resized if necessary).
+            * It's generally simpler and more efficient for this kind of operation.
+    * Here's the comparison in terms of code:
+        * Using a custom RemoveAt for arrays:
+        ```c#
+        int[] numbers = { 1, 2, 3, 4, 5 };
+        numbers = RemoveAt(numbers, 2);  // Removes '3' from the array
+        ```
+        * Using List.RemoveAt:
+        ```c#
+        List<int> numbersList = new List<int> { 1, 2, 3, 4, 5 };
+        numbersList.RemoveAt(2);  // Removes '3' from the list
+        ```
+    * Conclusion:
+        * The `List.RemoveAt` method is simpler and clearer for the reader.
+        * Using `List<T>` generally involves fewer manual operations and has a more intuitive API for collection manipulations.
+        * If you're frequently adding or removing items, a List<T> is more efficient and convenient than an array.
+        * If you know your collection size won't change, or you're working in performance-critical scenarios where the overhead of a dynamic collection is problematic, then an array might be more appropriate. However, for most typical use cases involving frequent size changes, a `List<T>` is preferable.
+
 #### [System.Linq Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.linq?view=net-7.0)
 
 ##### [Queryable Class](https://learn.microsoft.com/en-us/dotnet/api/system.linq.queryable?view=net-7.0)
