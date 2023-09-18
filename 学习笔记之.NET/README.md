@@ -915,6 +915,65 @@ public sealed class App
 
 ### [.NET fundamentals](https://learn.microsoft.com/en-us/dotnet/fundamentals/)
 
+#### [Generics in .NET](https://learn.microsoft.com/en-us/dotnet/standard/generics/)
+
+* Generics let you tailor a method, class, structure, or interface to the precise data type it acts upon. For example, instead of using the [Hashtable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable) class, which allows keys and values to be of any type, you can use the [Dictionary<TKey,TValue>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2) generic class and specify the types allowed for the key and the value. Among the benefits of generics are increased code reusability and type safety.
+
+##### MISC
+
+* C# template ?
+    * In C#, "template" is usually referred to as "generic". Generics allow you to define type-safe data structures without committing to actual data types. This results in a high level of code reusability and a reduction in the amount of type casting and boxing that you have to do.
+    * Here's a basic introduction to generics in C#:
+        * Generic Class:
+            ```c#
+            public class GenericList<T>
+            {
+                void Add(T input) { }
+            }
+            ```
+            * You can then create instances of this class for any type:
+            ```c#
+            var stringList = new GenericList<string>();
+            var intList = new GenericList<int>();
+            ```
+        * Generic Method:
+            * Within non-generic classes or static classes, you can have generic methods:
+            ```c#
+            public void DisplayData<T>(T item)
+            {
+                Console.WriteLine(item);
+            }
+            ```
+            * And you can call this method for any type of data:
+            ```c#
+            DisplayData<string>("Hello, World!");
+            DisplayData<int>(2023);
+            ```
+        * Generic Constraints:
+            * You can apply restrictions on the types that can be used with generics. For instance, if you want your generic class to only work with types that implement a specific interface:
+            ```c#
+            public interface IExample { }
+            
+            public class GenericClass<T> where T : IExample
+            {
+                // Class code here
+            }
+            ```
+        * Generic Delegates:
+            * Just as you have generic classes and methods, you can also have generic delegates:
+            ```c#
+            public delegate void GenericDelegate<T>(T arg);
+            ```
+        * Generic Properties:
+            * You can also have generic properties in a generic class:
+            ```c#
+            public class GenericClass<T>
+            {
+                public T GenericProperty { get; set; }
+            }
+            ```
+    * Generics, when used effectively, can make your code more reusable, type-safe, and efficient. It reduces the need for boxing/unboxing and type conversions. Generics are a foundational aspect of .NET collections under the System.Collections.Generic namespace.
+
 #### [Collections and Data Structures](https://learn.microsoft.com/en-us/dotnet/standard/collections/)
 
 ### [.NET tools and diagnostics](https://learn.microsoft.com/en-us/dotnet/navigate/tools-diagnostics/)
